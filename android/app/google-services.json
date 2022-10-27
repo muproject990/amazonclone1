@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787905943780",
+    "project_id": "dogstore-a66a0",
+    "storage_bucket": "dogstore-a66a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787905943780:android:1b28c18eecadbb38de34f1",
+        "android_client_info": {
+          "package_name": "com.example.amazonclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787905943780-tqugu54bt3qukjlhfvde2o4buoq382v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo23X4F0E6TOm6_6dUhsq-Dk143StEXGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787905943780-tqugu54bt3qukjlhfvde2o4buoq382v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
