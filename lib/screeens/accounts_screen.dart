@@ -93,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
               //   children: testChildren,
               // ),
               const Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsets.all(18.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -114,7 +114,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Container();
-                    print('yes');
+                    // print('yes');
                   } else {
                     return ListView.builder(
                       itemCount: snapshot.data!.docs.length,
@@ -126,7 +126,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         return ListTile(
                           title: Text(
                             "Order: ${orderRequestModel.orderName}",
-                            style: TextStyle(fontWeight: FontWeight.w500),
+                            style: const TextStyle(fontWeight: FontWeight.w500),
                           ),
                           subtitle: Text(
                               "Address: ${orderRequestModel.buyerAddress}"),
@@ -139,7 +139,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                     .doc(snapshot.data!.docs[index].id)
                                     .delete();
                               },
-                              icon: Icon(Icons.check)),
+                              icon: const Icon(Icons.check)),
                         );
                       },
                     );
@@ -165,7 +165,7 @@ class IntroductionAccountScreen extends StatelessWidget {
         Provider.of<UserDetailsProvider>(context, listen: false).userDetails;
 
     return Container(
-      height: kAppBarHeight / 2,
+      // height: kAppBarHeight / 2,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: backgroundGradient,
@@ -174,17 +174,6 @@ class IntroductionAccountScreen extends StatelessWidget {
         ),
       ),
       child: Container(
-        // height: kAppBarHeight / 2,
-        // decoration: BoxDecoration(
-        //   gradient: LinearGradient(
-        //     colors: [
-        //       Colors.white,
-        //       Colors.white.withOpacity(0.0000000000000001)
-        //     ],
-        //     begin: Alignment.bottomCenter,
-        //     end: Alignment.topCenter,
-        //   ),
-        // ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -200,7 +189,7 @@ class IntroductionAccountScreen extends StatelessWidget {
                           fontSize: 25,
                         )),
                     TextSpan(
-                        text: "  ${userDetailsModel.address}  ",
+                        text: "  ${userDetailsModel.name}  ",
                         style: TextStyle(
                             color: Colors.grey[800],
                             fontSize: 22,
@@ -212,8 +201,9 @@ class IntroductionAccountScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
+                // radius: 24,
                 backgroundImage: NetworkImage(
-                    "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png"),
+                    "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"),
               ),
             ),
           ],

@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: SearchBarWidget(
-          hasBackButton: true,
+          hasBackButton: false,
           isReadOnly: true,
         ),
         body: discount70 != null &&

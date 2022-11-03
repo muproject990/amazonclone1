@@ -27,13 +27,12 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Image.network(
-                amazonLogoUrl,
-                height: kAppBarHeight * .7,
-              ),
-            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Image(
+                  image: AssetImage(dogMartLogo),
+                  height: kAppBarHeight * .9,
+                )),
             Row(
               children: [
                 IconButton(

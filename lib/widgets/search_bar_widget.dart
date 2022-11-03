@@ -86,7 +86,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                   }
                 },
                 decoration: InputDecoration(
-                  hintText: "Search for something in amazon",
+                  hintText: "Search for something in Dogmart",
                   fillColor: Colors.white,
                   filled: true,
                   border: border,

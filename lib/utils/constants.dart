@@ -22,48 +22,48 @@ FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 // Size screenSize = MediaQuery.of(context).size;
 
-const String amazonLogoUrl =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png";
+const String dogMartLogo = 'assets/img/logo.png';
 
 Size screenSize = Utils().getScreenSize();
-List<Widget> testChildren = [
-  SimpleProductWidget(
-    productModel: ProductModel(
-        url: "https://m.media-amazon.com/images/I/115yueUc1aL._SX90_SY90_.png",
-        productName: "aavash",
-        cost: 120.5,
-        discount: 10,
-        uid: 'uid',
-        sellerName: 'Aavash',
-        sellerUid: 'sellerUid',
-        rating: 10,
-        noOfRating: 3),
-  ),
-  SimpleProductWidget(
-    productModel: ProductModel(
-        url: "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png",
-        productName: "aavash",
-        cost: 100.5,
-        discount: 10,
-        uid: 'uid',
-        sellerName: 'Aavash',
-        sellerUid: 'sellerUid',
-        rating: 10,
-        noOfRating: 3),
-  ),
-  SimpleProductWidget(
-    productModel: ProductModel(
-        url: "https://m.media-amazon.com/images/I/115yueUc1aL._SX90_SY90_.png",
-        productName: "aavash",
-        cost: 100.5,
-        discount: 10,
-        uid: 'uid',
-        sellerName: 'Aavash',
-        sellerUid: 'sellerUid',
-        rating: 10,
-        noOfRating: 3),
-  ),
-];
+// List<Widget> testChildren = [
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/115yueUc1aL._SX90_SY90_.png",
+//         productName: "aavash",
+//         cost: 120.5,
+//         discount: 10,
+//         uid: 'uid',
+//         sellerName: 'Aavash',
+//         sellerUid: 'sellerUid',
+//         rating: 10,
+//         noOfRating: 3),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png",
+//         productName: "aavash",
+//         cost: 100.5,
+//         discount: 10,
+//         uid: 'uid',
+//         sellerName: 'Aavash',
+//         sellerUid: 'sellerUid',
+//         rating: 10,
+//         noOfRating: 3),
+//   ),
+//   SimpleProductWidget(
+//     productModel: ProductModel(
+//         url: "https://m.media-amazon.com/images/I/115yueUc1aL._SX90_SY90_.png",
+//         productName: "aavash",
+//         cost: 100.5,
+//         discount: 10,
+//         uid: 'uid',
+//         sellerName: 'Aavash',
+//         sellerUid: 'sellerUid',
+//         rating: 10,
+//         noOfRating: 3),
+//   ),
+// ];
+
 const List<String> categoriesList = [
   "Prime",
   "Mobiles",
