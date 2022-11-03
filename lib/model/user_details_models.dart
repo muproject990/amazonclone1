@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class UserDetailsModel {
   final String name;
   final String address;
@@ -15,6 +13,9 @@ class UserDetailsModel {
       };
 
   factory UserDetailsModel.getModelFromJson(Map<String, dynamic> json) {
-    return UserDetailsModel(name: json['name'], address: json['address']);
+    return UserDetailsModel(
+      name: json['name'],
+      address: json['address'],
+    );
   }
 }

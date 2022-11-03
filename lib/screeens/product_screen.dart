@@ -1,6 +1,7 @@
 import 'package:amazonclone/model/product_model.dart';
 import 'package:amazonclone/model/review_model.dart';
-import 'package:amazonclone/model/user_details.dart';
+import 'package:amazonclone/model/user_details_models.dart';
+import 'package:amazonclone/provider/userdetails_provider.dart';
 import 'package:amazonclone/utils/color_themes.dart';
 import 'package:amazonclone/utils/constants.dart';
 import 'package:amazonclone/utils/utils.dart';
@@ -10,7 +11,9 @@ import 'package:amazonclone/widgets/review_dialog.dart';
 import 'package:amazonclone/widgets/review_widget.dart';
 import 'package:amazonclone/widgets/search_bar_widget.dart';
 import 'package:amazonclone/widgets/user_details_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../resources/cloud_firestore.dart';
 import '../widgets/cost_widget.dart';
@@ -86,25 +89,25 @@ class _ProductScreenState extends State<ProductScreen> {
                               cost: widget.productModel.cost),
                           spaceThingy,
                           CustomMainButton(
-                            child: const Text(
-                              "Buy Now",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            color: Colors.orange,
-                            isLoading: false,
-                            // onPressed: () async {
-                            //   await CloudFirestoreClass().addProductToOrders(
-                            //       model: widget.productModel,
-                            //       userDetails:
-                            //           Provider.of<UserDetailsProvider>(
-                            //                   context,
-                            //                   listen: false)
-                            //               .userDetails);
-                            //   Utils().showSnackBar(
-                            //       context: context, content: "Done");
-                            // }
-                            onPressed: () {},
-                          ),
+                              child: const Text(
+                                "Buy Now",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              color: Colors.orange,
+                              isLoading: false,
+                              onPressed: () async {
+                                await CloudFirestoreClass().addProductToOrdres(
+                                  productModel: widget.productModel,
+                                  userDetailsModel:
+                                      Provider.of<UserDetailsProvider>(context,
+                                              listen: false)
+                                          .userDetails,
+                                );
+                                Utils().showSnackBar(
+                                    context: context, content: "Done");
+                              }
+                              // onPressed: () {},
+                              ),
                           spaceThingy,
                           CustomMainButton(
                             child: const Text(
@@ -113,13 +116,12 @@ class _ProductScreenState extends State<ProductScreen> {
                             ),
                             color: yellowColor,
                             isLoading: false,
-                            // onPressed: () async {
-                            //   await CloudFirestoreClass().addProductToCart(
-                            //       productModel: widget.productModel);
-                            //   Utils().showSnackBar(
-                            //       context: context, content: "Added to cart.");
-                            // },
-                            onPressed: () {},
+                            onPressed: () async {
+                              await CloudFirestoreClass().addProductToCart(
+                                  productModel: widget.productModel);
+                              Utils().showSnackBar(
+                                  context: context, content: "Added to cart");
+                            },
                           ),
                           spaceThingy,
                           CustomSimpleRoundedButton(
@@ -137,49 +139,38 @@ class _ProductScreenState extends State<ProductScreen> {
                     ),
                     SizedBox(
                       height: screenSize.height,
-                      child: ListView.builder(
-                          itemCount: 5,
-                          itemBuilder: ((context, index) {
-                            return const ReviewWidget(
-                                review: ReviewModel(
-                                    senderName: 'Aavash',
-                                    description: 'a descp',
-                                    rating: 5));
-                          })),
-                      //   child: StreamBuilder(
-                      //     stream: FirebaseFirestore.instance
-                      //         .collection("products")
-                      //         .doc(widget.productModel.uid)
-                      //         .collection("reviews")
-                      //         .snapshots(),
-                      //     builder: (context,
-                      //         AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
-                      //             snapshot) {
-                      //       if (snapshot.connectionState ==
-                      //           ConnectionState.waiting) {
-                      //         return Container();
-                      //       } else {
-                      //         return ListView.builder(
-                      //             itemCount: snapshot.data!.docs.length,
-                      //             itemBuilder: (context, index) {
-                      //               ReviewModel model =
-                      //                   ReviewModel.getModelFromJson(
-                      //                       json: snapshot.data!.docs[index]
-                      //                           .data());
-                      //               return ReviewWidget(review: model);
-                      //             });
-                      //       }
-                      //     },
-                      //   ),
+                      child: StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection("products")
+                            .doc(widget.productModel.uid)
+                            .collection("reviews")
+                            .snapshots(),
+                        builder: (context,
+                            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                                snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Container();
+                          } else {
+                            return ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  ReviewModel model =
+                                      ReviewModel.getModelFromJson(
+                                          json: snapshot.data!.docs[index]
+                                              .data());
+                                  return ReviewWidget(review: model);
+                                });
+                          }
+                        },
+                      ),
                     )
                   ],
                 ),
               ),
             ),
-            UserDetailsBar(
+            const UserDetailsBar(
               offset: 0,
-              userdDetails:
-                  UserDetailsModel(name: "Aavash", address: "Bansgadhi"),
             )
           ],
         ),

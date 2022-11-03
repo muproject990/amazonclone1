@@ -1,17 +1,19 @@
-import 'package:amazonclone/model/user_details.dart';
+import 'package:amazonclone/model/user_details_models.dart';
+import 'package:amazonclone/provider/userdetails_provider.dart';
 import 'package:amazonclone/utils/color_themes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UserDetailsBar extends StatelessWidget {
   final double offset;
-  final UserDetailsModel userdDetails;
-  const UserDetailsBar(
-      {Key? key, required this.offset, required this.userdDetails})
-      : super(key: key);
+  // final UserDetailsModel userdDetails;
+  const UserDetailsBar({Key? key, required this.offset}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+    UserDetailsModel? userDetails =
+        Provider.of<UserDetailsProvider>(context).userDetails;
     return Positioned(
       top: -offset / 3,
       child: Container(
@@ -39,7 +41,7 @@ class UserDetailsBar extends StatelessWidget {
               SizedBox(
                 width: screenSize.width * .7,
                 child: Text(
-                  "Deliver To ${userdDetails.name} -${userdDetails.address}",
+                  "Deliver To ${userDetails.name}   -${userDetails.address} ",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

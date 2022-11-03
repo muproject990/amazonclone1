@@ -1,10 +1,14 @@
+// import 'package:amazon_clone/screens/results_screen.dart';
+// import 'package:amazon_clone/screens/search_screen.dart';
+// import 'package:amazon_clone/utils/color_themes.dart';
+// import 'package:amazon_clone/utils/constants.dart';
+// import 'package:amazon_clone/utils/utils.dart';
 import 'package:amazonclone/screeens/result_screen.dart';
+import 'package:amazonclone/screeens/search_screen.dart';
 import 'package:amazonclone/utils/color_themes.dart';
 import 'package:amazonclone/utils/constants.dart';
 import 'package:amazonclone/utils/utils.dart';
 import 'package:flutter/material.dart';
-
-import '../screeens/search_screen.dart';
 
 class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
   final bool isReadOnly;
@@ -64,10 +68,11 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
               ),
               child: TextField(
                 onSubmitted: (String query) {
+                  print('clicked');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ResultScreen(query: '',),
+                      builder: (context) => ResultScreen(query: query),
                     ),
                   );
                 },

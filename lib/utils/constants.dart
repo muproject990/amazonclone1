@@ -1,6 +1,8 @@
 // import 'dart:js';
 
 import 'package:amazonclone/model/product_model.dart';
+import 'package:amazonclone/model/user_details_models.dart';
+import 'package:amazonclone/provider/userdetails_provider.dart';
 import 'package:amazonclone/resources/authentication_method.dart';
 import 'package:amazonclone/screeens/accounts_screen.dart';
 import 'package:amazonclone/utils/utils.dart';
@@ -8,6 +10,7 @@ import 'package:amazonclone/widgets/simple_product_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../screeens/cart_screen.dart';
 import '../screeens/home_screen.dart';
@@ -128,3 +131,5 @@ List<String> keysOfRating = [
   "Good",
   "Excellent"
 ];
+
+// provider

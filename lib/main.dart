@@ -3,6 +3,7 @@ import 'package:amazonclone/model/product_model.dart';
 import 'package:amazonclone/provider/userdetails_provider.dart';
 import 'package:amazonclone/screeens/product_screen.dart';
 import 'package:amazonclone/screeens/result_screen.dart';
+import 'package:amazonclone/screeens/sell_screen.dart';
 import 'package:amazonclone/screeens/sign_up_screen.dart';
 import 'package:amazonclone/screeens/signin_screen.dart';
 import 'package:amazonclone/utils/color_themes.dart';
@@ -61,20 +62,9 @@ class AmazonClone extends StatelessWidget {
                 );
               } else if (user.hasData) {
                 // firebaseAuth.signOut();
+
+                // return const SellScreen();
                 return const ScreenLayout();
-                // return ProductScreen(
-                //   productModel: ProductModel(
-                //       url:
-                //           "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png",
-                //       productName: "aavash",
-                //       cost: 100.5,
-                //       discount: 10,
-                //       uid: 'uid',
-                //       sellerName: 'Aavash PAudel',
-                //       sellerUid: 'sellerUid',
-                //       rating: 10,
-                //       noOfRating: 3),
-                // );
               } else {
                 return SignInScreen();
               }

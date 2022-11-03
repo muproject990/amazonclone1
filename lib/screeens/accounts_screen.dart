@@ -1,10 +1,19 @@
+import 'package:amazonclone/model/order_req_model.dart';
+import 'package:amazonclone/model/product_model.dart';
+import 'package:amazonclone/model/user_details_models.dart';
+import 'package:amazonclone/screeens/sell_screen.dart';
 import 'package:amazonclone/utils/color_themes.dart';
 import 'package:amazonclone/utils/constants.dart';
 import 'package:amazonclone/utils/utils.dart';
 import 'package:amazonclone/widgets/account_screen_appbar.dart';
 import 'package:amazonclone/widgets/custom_main_button.dart';
 import 'package:amazonclone/widgets/product_showcase_list_view.dart';
+import 'package:amazonclone/widgets/simple_product_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/userdetails_provider.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -14,8 +23,11 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  List<Widget>? yourOrders;
+
   @override
   Size screenSize = Utils().getScreenSize();
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -30,10 +42,12 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 10,
               ),
               CustomMainButton(
-                child: Text("Sign_in"),
+                child: Text("Sign Out"),
                 color: Colors.orangeAccent,
                 isLoading: false,
-                onPressed: () {},
+                onPressed: () {
+                  firebaseAuth.signOut();
+                },
               ),
               const SizedBox(
                 height: 10,
@@ -42,13 +56,43 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: const Text("Sell"),
                 color: Colors.blue.shade300,
                 isLoading: false,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return SellScreen();
+                  }));
+                },
               ),
-              ProductShowcaseListView(
-                title: "Your Orders",
-                children: testChildren,
+              FutureBuilder(
+                future: firebaseFirestore
+                    .collection('users')
+                    .doc(firebaseAuth.currentUser!.uid)
+                    .collection('orders')
+                    .get(),
+                builder: (
+                  context,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
+                ) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Container();
+                  } else {
+                    List<Widget> children = [];
+                    for (int i = 0; i < snapshot.data!.docs.length; i++) {
+                      ProductModel productModel = ProductModel.getModelFromJson(
+                          json: snapshot.data!.docs[i].data());
+
+                      children
+                          .add(SimpleProductWidget(productModel: productModel));
+                    }
+                    return ProductShowcaseListView(
+                        title: "Your orders", children: children);
+                  }
+                },
               ),
-              Padding(
+              // ProductShowcaseListView(
+              //   title: "Your Orders",
+              //   children: testChildren,
+              // ),
+              const Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
@@ -59,23 +103,49 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Expanded(
-                  child: ListView.builder(
-                      itemCount: 5,
+                  child: StreamBuilder(
+                stream: firebaseFirestore
+                    .collection('users')
+                    .doc(firebaseAuth.currentUser!.uid)
+                    .collection('orderRequest')
+                    .snapshots(),
+                builder: (context,
+                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                        snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Container();
+                    print('yes');
+                  } else {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
+                        OrderRequestModel orderRequestModel =
+                            OrderRequestModel.getModelFromJson(
+                                json: snapshot.data!.docs[index].data());
+
                         return ListTile(
-                          title: const Text(
-                            "Order: Black Dog ",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
+                          title: Text(
+                            "Order: ${orderRequestModel.orderName}",
+                            style: TextStyle(fontWeight: FontWeight.w500),
                           ),
-                          subtitle: const Text("Address:SomeWhere on the earth"),
+                          subtitle: Text(
+                              "Address: ${orderRequestModel.buyerAddress}"),
                           trailing: IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.check),
-                          ),
+                              onPressed: () async {
+                                FirebaseFirestore.instance
+                                    .collection("users")
+                                    .doc(firebaseAuth.currentUser!.uid)
+                                    .collection("orderRequest")
+                                    .doc(snapshot.data!.docs[index].id)
+                                    .delete();
+                              },
+                              icon: Icon(Icons.check)),
                         );
-                      }))
+                      },
+                    );
+                  }
+                },
+              ))
             ],
           ),
         ),
@@ -91,6 +161,9 @@ class IntroductionAccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserDetailsModel? userDetailsModel =
+        Provider.of<UserDetailsProvider>(context, listen: false).userDetails;
+
     return Container(
       height: kAppBarHeight / 2,
       decoration: const BoxDecoration(
@@ -120,17 +193,17 @@ class IntroductionAccountScreen extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(
-                        text: "hello",
+                    const TextSpan(
+                        text: "Hello",
                         style: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 27,
+                          color: Color.fromARGB(255, 7, 6, 6),
+                          fontSize: 25,
                         )),
                     TextSpan(
-                        text: " Aavash",
+                        text: "  ${userDetailsModel.address}  ",
                         style: TextStyle(
                             color: Colors.grey[800],
-                            fontSize: 26,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold))
                   ],
                 ),

@@ -29,8 +29,6 @@ class _SignInScreenState extends State<SignInScreen> {
     passwordController.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();

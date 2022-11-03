@@ -1,5 +1,8 @@
+import 'package:amazonclone/utils/constants.dart';
+import 'package:amazonclone/widgets/loding_widget.dart';
 import 'package:amazonclone/widgets/result_widget.dart';
 import 'package:amazonclone/widgets/search_bar_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../model/product_model.dart';
@@ -38,27 +41,31 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: GridView.builder(
-                itemCount: 9,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, childAspectRatio: 2 / 3),
-                itemBuilder: (context, index) {
-                  return ResultsWidget(
-                    product: ProductModel(
-                        url:
-                            "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png",
-                        productName:
-                            "aavash a  a  aaaaa                aaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaadddddddddddd  dddddddda",
-                        cost: 100.5,
-                        discount: 10,
-                        uid: 'uid',
-                        sellerName: 'sellerName',
-                        sellerUid: 'sellerUid',
-                        rating: 4,
-                        noOfRating: 10),
-                  );
-                }),
-          )
+              child: FutureBuilder(
+            future: firebaseFirestore
+                .collection('products')
+                .where("productName", isEqualTo: query)
+                .get(),
+            builder: (BuildContext context,
+                AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const LoadingWidget();
+              } else {
+                return GridView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, childAspectRatio: 2 / 3.5),
+                    itemBuilder: (context, index) {
+                      ProductModel productModel = ProductModel.getModelFromJson(
+                          json: snapshot.data!.docs[index].data());
+                      return ResultsWidget(
+                        product: productModel,
+                      );
+                    });
+              }
+            },
+          ))
         ]),
       ),
     );

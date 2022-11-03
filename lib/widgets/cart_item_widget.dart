@@ -1,4 +1,5 @@
 import 'package:amazonclone/model/product_model.dart';
+import 'package:amazonclone/resources/cloud_firestore.dart';
 import 'package:amazonclone/screeens/product_screen.dart';
 import 'package:amazonclone/utils/color_themes.dart';
 import 'package:amazonclone/widgets/cost_widget.dart';
@@ -27,6 +28,7 @@ class CartItemWidget extends StatelessWidget {
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: GestureDetector(
@@ -39,7 +41,7 @@ class CartItemWidget extends StatelessWidget {
                 );
               },
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
                     width: screenSize.width / 3,
@@ -65,35 +67,27 @@ class CartItemWidget extends StatelessWidget {
               children: [
                 CustomSquareButton(
                     child: const Icon(Icons.remove),
-                    onPressed: () {},
+                    onPressed: () async {
+                      await CloudFirestoreClass()
+                          .deleteProductFromCart(uid: product.uid);
+                    },
                     color: backgroundColor,
                     dimension: 40),
                 CustomSquareButton(
-                    child: const Text(
-                      "0",
-                      style: TextStyle(
-                        color: activeCyanColor,
-                      ),
-                    ),
-                    onPressed: () {},
-                    color: Colors.white,
-                    dimension: 40),
-                CustomSquareButton(
                     child: const Icon(Icons.add),
-                    onPressed: () {},
-                    // onPressed: () async {
-                    //   await CloudFirestoreClass().addProductToCart(
-                    //       productModel: ProductModel(
-                    //           url: product.url,
-                    //           productName: product.productName,
-                    //           cost: product.cost,
-                    //           discount: product.discount,
-                    //           uid: Utils().getUid(),
-                    //           sellerName: product.sellerName,
-                    //           sellerUid: product.sellerUid,
-                    //           rating: product.rating,
-                    //           noOfRating: product.noOfRating));
-                    // },
+                    onPressed: () async {
+                      await CloudFirestoreClass().addProductToCart(
+                          productModel: ProductModel(
+                              url: product.url,
+                              productName: product.productName,
+                              cost: product.cost,
+                              discount: product.discount,
+                              uid: Utils().getUid(),
+                              sellerName: product.sellerName,
+                              sellerUid: product.sellerUid,
+                              rating: product.rating,
+                              noOfRating: product.noOfRating));
+                    },
                     color: backgroundColor,
                     dimension: 40),
               ],
@@ -108,10 +102,12 @@ class CartItemWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
+                      // ignore: avoid_print
+                      // print('hi');
                       CustomSimpleRoundedButton(
                           onPressed: () async {
-                            // CloudFirestoreClass()
-                            //     .deleteProductFromCart(uid: product.uid);
+                            await CloudFirestoreClass()
+                                .deleteProductFromCart(uid: product.uid);
                           },
                           text: "Delete"),
                       const SizedBox(

@@ -1,4 +1,5 @@
 import 'package:amazonclone/model/product_model.dart';
+import 'package:amazonclone/screeens/product_screen.dart';
 import 'package:amazonclone/utils/utils.dart';
 import 'package:amazonclone/widgets/rating_star_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +19,12 @@ class ResultsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => ProductScreen(productModel: product),
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductScreen(productModel: product),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),

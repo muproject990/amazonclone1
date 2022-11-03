@@ -1,4 +1,4 @@
-import 'package:amazonclone/model/user_details.dart';
+import 'package:amazonclone/model/user_details_models.dart';
 import 'package:amazonclone/resources/cloud_firestore.dart';
 import 'package:amazonclone/utils/constants.dart';
 import 'package:amazonclone/utils/utils.dart';
