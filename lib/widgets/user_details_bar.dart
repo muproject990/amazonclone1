@@ -1,6 +1,6 @@
-import 'package:amazonclone/model/user_details_models.dart';
-import 'package:amazonclone/provider/userdetails_provider.dart';
-import 'package:amazonclone/utils/color_themes.dart';
+import 'package:dogmart/model/user_details_models.dart';
+import 'package:dogmart/provider/userdetails_provider.dart';
+import 'package:dogmart/utils/color_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

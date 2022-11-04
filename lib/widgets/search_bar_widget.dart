@@ -3,11 +3,11 @@
 // import 'package:amazon_clone/utils/color_themes.dart';
 // import 'package:amazon_clone/utils/constants.dart';
 // import 'package:amazon_clone/utils/utils.dart';
-import 'package:amazonclone/screeens/result_screen.dart';
-import 'package:amazonclone/screeens/search_screen.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
+import 'package:dogmart/screeens/result_screen.dart';
+import 'package:dogmart/screeens/search_screen.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
@@ -86,7 +86,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                   }
                 },
                 decoration: InputDecoration(
-                  hintText: "Search for something in amazon",
+                  hintText: "Search for something in Dogmart",
                   fillColor: Colors.white,
                   filled: true,
                   border: border,

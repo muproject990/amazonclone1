@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:amazonclone/model/order_req_model.dart';
-import 'package:amazonclone/model/product_model.dart';
-import 'package:amazonclone/model/review_model.dart';
-import 'package:amazonclone/model/user_details_models.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
-import 'package:amazonclone/widgets/simple_product_widget.dart';
+import 'package:dogmart/model/order_req_model.dart';
+import 'package:dogmart/model/product_model.dart';
+import 'package:dogmart/model/review_model.dart';
+import 'package:dogmart/model/user_details_models.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
+import 'package:dogmart/widgets/simple_product_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';

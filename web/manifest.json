@@ -1,6 +1,6 @@
 {
-    "name": "amazonclone",
-    "short_name": "amazonclone",
+    "name": "dogmart",
+    "short_name": "dogmart",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,13 +1,13 @@
-import 'package:amazonclone/layout/screen_layout.dart';
-import 'package:amazonclone/model/product_model.dart';
-import 'package:amazonclone/provider/userdetails_provider.dart';
-import 'package:amazonclone/screeens/product_screen.dart';
-import 'package:amazonclone/screeens/result_screen.dart';
-import 'package:amazonclone/screeens/sell_screen.dart';
-import 'package:amazonclone/screeens/sign_up_screen.dart';
-import 'package:amazonclone/screeens/signin_screen.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
+import 'package:dogmart/layout/screen_layout.dart';
+import 'package:dogmart/model/product_model.dart';
+import 'package:dogmart/provider/userdetails_provider.dart';
+import 'package:dogmart/screeens/product_screen.dart';
+import 'package:dogmart/screeens/result_screen.dart';
+import 'package:dogmart/screeens/sell_screen.dart';
+import 'package:dogmart/screeens/sign_up_screen.dart';
+import 'package:dogmart/screeens/signin_screen.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -29,11 +29,11 @@ void main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(const AmazonClone());
+  runApp(const dogmart());
 }
 
-class AmazonClone extends StatelessWidget {
-  const AmazonClone({Key? key}) : super(key: key);
+class dogmart extends StatelessWidget {
+  const dogmart({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

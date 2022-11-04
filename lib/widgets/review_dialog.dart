@@ -1,6 +1,6 @@
-import 'package:amazonclone/model/review_model.dart';
-import 'package:amazonclone/provider/userdetails_provider.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
+import 'package:dogmart/model/review_model.dart';
+import 'package:dogmart/provider/userdetails_provider.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:rating_dialog/rating_dialog.dart';

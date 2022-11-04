@@ -1,18 +1,18 @@
 import 'dart:developer';
 import 'dart:ui';
 
-import 'package:amazonclone/screeens/signin_screen.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
-import 'package:amazonclone/widgets/custom_main_button.dart';
-import 'package:amazonclone/widgets/text_field_widget.dart';
+import 'package:dogmart/screeens/signin_screen.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
+import 'package:dogmart/widgets/custom_main_button.dart';
+import 'package:dogmart/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class SignUpScreen extends StatefulWidget {
- const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -39,8 +39,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.network(
-                  amazonLogo,
+                Image.asset(
+                  DogmartLogo,
                   height: screenSize.height * 0.10,
                 ),
                 SizedBox(

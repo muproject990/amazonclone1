@@ -1,6 +1,6 @@
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -29,8 +29,8 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Image.network(
-                amazonLogoUrl,
+              child: Image.asset(
+                DogmartLogo,
                 height: kAppBarHeight * .7,
               ),
             ),

@@ -1,5 +1,5 @@
-import 'package:amazonclone/screeens/result_screen.dart';
-import 'package:amazonclone/utils/constants.dart';
+import 'package:dogmart/screeens/result_screen.dart';
+import 'package:dogmart/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

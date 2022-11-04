@@ -1,7 +1,7 @@
-import 'package:amazonclone/provider/userdetails_provider.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
+import 'package:dogmart/provider/userdetails_provider.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';

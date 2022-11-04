@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "amazonclone" "\0"
+            VALUE "FileDescription", "dogmart" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "amazonclone" "\0"
+            VALUE "InternalName", "dogmart" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "amazonclone.exe" "\0"
-            VALUE "ProductName", "amazonclone" "\0"
+            VALUE "OriginalFilename", "dogmart.exe" "\0"
+            VALUE "ProductName", "dogmart" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

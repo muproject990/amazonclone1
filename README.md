@@ -1,4 +1,4 @@
-# amazonclone
+# dogmart
 
 A new Flutter project.
 

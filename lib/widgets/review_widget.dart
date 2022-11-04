@@ -1,6 +1,6 @@
-import 'package:amazonclone/model/review_model.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/widgets/rating_star_widget.dart';
+import 'package:dogmart/model/review_model.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/widgets/rating_star_widget.dart';
 import 'package:flutter/cupertino.dart';
 
 class ReviewWidget extends StatelessWidget {

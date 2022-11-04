@@ -1,11 +1,11 @@
-import 'package:amazonclone/resources/authentication_method.dart';
-import 'package:amazonclone/screeens/home_screen.dart';
-import 'package:amazonclone/screeens/sign_up_screen.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
-import 'package:amazonclone/widgets/custom_main_button.dart';
-import 'package:amazonclone/widgets/text_field_widget.dart';
+import 'package:dogmart/resources/authentication_method.dart';
+import 'package:dogmart/screeens/home_screen.dart';
+import 'package:dogmart/screeens/sign_up_screen.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
+import 'package:dogmart/widgets/custom_main_button.dart';
+import 'package:dogmart/widgets/text_field_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -45,8 +45,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.network(
-                    amazonLogo,
+                  Image.asset(
+                    DogmartLogo,
                     height: screenSize.height * 0.10,
                   ),
                   Container(
@@ -128,7 +128,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
-                          "New to Amazon?",
+                          "New to Dogmart?",
                           style: TextStyle(color: Colors.grey),
                         ),
                       ),
@@ -142,7 +142,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   CustomMainButton(
                       child: const Text(
-                        "Create an Amazon Account",
+                        "Create an Dogmart Account",
                         style: TextStyle(
                           letterSpacing: 0.6,
                           color: Colors.black,

@@ -1,5 +1,5 @@
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/utils/constants.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BannerAdWidget extends StatefulWidget {

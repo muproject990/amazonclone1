@@ -1,13 +1,13 @@
-import 'package:amazonclone/model/user_details_models.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/widgets/banner_ad_widget.dart';
-import 'package:amazonclone/widgets/categories_horizontal_list_view_bar.dart';
-import 'package:amazonclone/widgets/loding_widget.dart';
-import 'package:amazonclone/widgets/product_showcase_list_view.dart';
-import 'package:amazonclone/widgets/search_bar_widget.dart';
-import 'package:amazonclone/widgets/simple_product_widget.dart';
-import 'package:amazonclone/widgets/user_details_bar.dart';
+import 'package:dogmart/model/user_details_models.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/widgets/banner_ad_widget.dart';
+import 'package:dogmart/widgets/categories_horizontal_list_view_bar.dart';
+import 'package:dogmart/widgets/loding_widget.dart';
+import 'package:dogmart/widgets/product_showcase_list_view.dart';
+import 'package:dogmart/widgets/search_bar_widget.dart';
+import 'package:dogmart/widgets/simple_product_widget.dart';
+import 'package:dogmart/widgets/user_details_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: SearchBarWidget(
-          hasBackButton: true,
+          hasBackButton: false,
           isReadOnly: true,
         ),
         body: discount70 != null &&
@@ -79,10 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         // ignore: prefer_const_literals_to_create_immutables
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
-                          CategoriesHorizontalListViewBar(),
+                          const CategoriesHorizontalListViewBar(),
                           BannerAdWidget(),
                           ProductShowcaseListView(
                             title: "Upto 70% off",

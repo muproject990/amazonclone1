@@ -1,5 +1,5 @@
-import 'package:amazonclone/model/product_model.dart';
-import 'package:amazonclone/screeens/product_screen.dart';
+import 'package:dogmart/model/product_model.dart';
+import 'package:dogmart/screeens/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class SimpleProductWidget extends StatelessWidget {

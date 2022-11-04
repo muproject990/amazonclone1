@@ -1,7 +1,7 @@
-import 'package:amazonclone/model/product_model.dart';
-import 'package:amazonclone/screeens/product_screen.dart';
-import 'package:amazonclone/utils/utils.dart';
-import 'package:amazonclone/widgets/rating_star_widget.dart';
+import 'package:dogmart/model/product_model.dart';
+import 'package:dogmart/screeens/product_screen.dart';
+import 'package:dogmart/utils/utils.dart';
+import 'package:dogmart/widgets/rating_star_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/color_themes.dart';

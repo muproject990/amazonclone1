@@ -1,7 +1,7 @@
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/widgets/loding_widget.dart';
-import 'package:amazonclone/widgets/result_widget.dart';
-import 'package:amazonclone/widgets/search_bar_widget.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/widgets/loding_widget.dart';
+import 'package:dogmart/widgets/result_widget.dart';
+import 'package:dogmart/widgets/search_bar_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

@@ -1,11 +1,11 @@
-import 'package:amazonclone/model/product_model.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
-import 'package:amazonclone/screeens/product_screen.dart';
-import 'package:amazonclone/utils/color_themes.dart';
-import 'package:amazonclone/widgets/cost_widget.dart';
-import 'package:amazonclone/widgets/custom_simple_rounded_button.dart';
-import 'package:amazonclone/widgets/custom_square_button.dart';
-import 'package:amazonclone/widgets/product_information_widget.dart';
+import 'package:dogmart/model/product_model.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
+import 'package:dogmart/screeens/product_screen.dart';
+import 'package:dogmart/utils/color_themes.dart';
+import 'package:dogmart/widgets/cost_widget.dart';
+import 'package:dogmart/widgets/custom_simple_rounded_button.dart';
+import 'package:dogmart/widgets/custom_square_button.dart';
+import 'package:dogmart/widgets/product_information_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';

@@ -1,5 +1,5 @@
-import 'package:amazonclone/model/user_details_models.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
+import 'package:dogmart/model/user_details_models.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../model/user_details_models.dart';

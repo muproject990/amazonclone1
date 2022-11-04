@@ -1,7 +1,7 @@
-import 'package:amazonclone/model/user_details_models.dart';
-import 'package:amazonclone/resources/cloud_firestore.dart';
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/utils/utils.dart';
+import 'package:dogmart/model/user_details_models.dart';
+import 'package:dogmart/resources/cloud_firestore.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 

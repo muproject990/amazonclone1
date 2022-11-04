@@ -1,6 +1,6 @@
-import 'package:amazonclone/utils/constants.dart';
-import 'package:amazonclone/widgets/categories_widget.dart';
-import 'package:amazonclone/widgets/search_bar_widget.dart';
+import 'package:dogmart/utils/constants.dart';
+import 'package:dogmart/widgets/categories_widget.dart';
+import 'package:dogmart/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class MoreScreen extends StatefulWidget {
