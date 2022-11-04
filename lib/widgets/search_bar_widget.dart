@@ -51,7 +51,9 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: const Icon(Icons.arrow_back))
+                  icon: const Icon(Icons.arrow_back),
+                  color: backgroundColor,
+                )
               : Container(),
           SizedBox(
             width: screenSize.width * 0.7,
@@ -97,7 +99,10 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.mic_none_outlined),
+            icon: const Icon(
+              Icons.mic_none_outlined,
+              color: Colors.white54,
+            ),
           )
         ],
       ),

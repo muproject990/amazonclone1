@@ -26,21 +26,13 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       },
       child: Stack(
         children: [
-          Image.network(
-            largeAds[currentAd],
-            width: double.infinity,
-          ),
-          Container(
+          SizedBox(
             width: screenSize.width,
             height: 200,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.center,
-                  colors: [
-                    backgroundColor,
-                    backgroundColor.withOpacity(0),
-                  ]),
+            child: Image.network(
+              largeAds[currentAd],
+              fit: BoxFit.fill,
+              width: double.infinity,
             ),
           )
         ],

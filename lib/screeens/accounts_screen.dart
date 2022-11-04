@@ -196,14 +196,14 @@ class IntroductionAccountScreen extends StatelessWidget {
                     const TextSpan(
                         text: "Hello",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 7, 6, 6),
+                          color: Color.fromARGB(255, 254, 255, 255),
                           fontSize: 25,
                         )),
                     TextSpan(
-                        text: "  ${userDetailsModel.address}  ",
-                        style: TextStyle(
-                            color: Colors.grey[800],
-                            fontSize: 22,
+                        text: "  ${userDetailsModel.name}  ",
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 254, 253, 253),
+                            fontSize: 21,
                             fontWeight: FontWeight.bold))
                   ],
                 ),
@@ -213,7 +213,7 @@ class IntroductionAccountScreen extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
-                    "https://m.media-amazon.com/images/I/11M0jYc-tRL._SX90_SY90_.png"),
+                    "https://cdn.britannica.com/35/233235-050-8DED07E3/Pug-dog.jpg"),
               ),
             ),
           ],
